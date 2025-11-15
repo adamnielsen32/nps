@@ -105,7 +105,6 @@
   margin: 0;
   display: flex;
   justify-content: center;
-  /* gap: 3rem; */
   background-color: var(--bs-black);
   font-size: 0.8rem;
 }
@@ -114,7 +113,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* height: 50px; */
   padding: 0.8em 2em;
 }
 .park-nav a:hover {
@@ -156,6 +154,65 @@
   --icon-color: white;
 }
 
+.global-nav__section-heading {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 1rem 0.625rem;
+  font-size: 1.25rem;
+}
+.section-heading--green {
+  color: var (--bs-light-green);
+}
+
+.section-heading--blue {
+  color: var (--bs-chathams-blue-3);
+}
+.global-nav__list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  border-top: 1px solid #444;
+}
+.global-nav__split-button {
+  display: flex;
+  background-color: var(--bs-gray-800);
+}
+.global-nav__split-button > a {
+  flex: 1;
+  align-self: center;
+  padding: 1rem 0.625rem;
+  display: block;
+}
+.global-nav__split-button > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.25rem;
+  border-left: 1px solid #444;
+}
+.global-nav__split-button > button:hover,
+.global-nav__split-button > a:hover {
+  background-color: var(--bs-gray-900);
+}
+
+/* submenu styling */
+.global-nav__submenu {
+  list-style: none;
+  padding: 0;
+  font-size: 0.8em;
+  overflow: hidden;
+  max-height: 0;
+
+}
+
+.global-nav__submenu a {
+  display: block;
+  padding: 1rem 0.625rem;
+}
+.global-nav__submenu a:hover {
+  text-decoration: underline;
+}
+
 /* Opening and closing menu */
 
 .global-nav__toggle[aria-expanded="true"] > .global-nav__toggle--closed {
@@ -167,4 +224,33 @@
 
 .global-nav.show {
   max-height: 1000px;
+}
+
+/* Submenu on wide screens */
+
+@media (min-width: 768px) {
+  .global-nav > h2,
+  .global-nav__list:first-of-type {
+    display: none;
+  }
+  .global-nav__submenu,
+  .global-nav__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .global-nav__split-button {
+    background-color: inherit;
+  }
+  .global-nav__split-button > button {
+    display: none;
+  }
+  .global-nav__submenu {
+    display: flex;
+    flex-direction: column;
+    max-height: fit-content;
+  }
+  .global-nav__submenu a {
+    padding: 0.625rem;
+  }
 }
